@@ -1,0 +1,11 @@
+GLOBAL SOLUTION FIAP 2026.2 - Physical Computing: IoT & IoB
+Projeto: ChuvaSegura (Ipiranga, Sao Paulo)
+
+Link do projeto no Wokwi: https://wokwi.com/projects/480429095495072769
+Link do video (ate 4 min): 
+
+Integrantes:
+1. Mohamed Afif - RM 554445
+2. Lucca Cardinale - RM 556668
+
+

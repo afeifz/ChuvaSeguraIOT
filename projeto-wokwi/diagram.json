@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "ChuvaSegura - Global Solution FIAP 2026.2",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "sensor", "top": -85.5, "left": 274.3, "attrs": { "distance": "90" } },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -150.4, "left": -224, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-led", "id": "ledVerde", "top": 255.6, "left": 227, "attrs": { "color": "green", "label": "Sem risco" } },
+    { "type": "wokwi-led", "id": "ledAmarelo", "top": 255.6, "left": 285, "attrs": { "color": "yellow", "label": "Atencao" } },
+    { "type": "wokwi-led", "id": "ledVermelho", "top": 255.6, "left": 343, "attrs": { "color": "red", "label": "Alerta" } },
+    { "type": "wokwi-resistor", "id": "rVerde", "top": 321.6, "left": 220.25, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rAmarelo", "top": 321.6, "left": 278.25, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rVermelho", "top": 321.6, "left": 336.25, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 204, "left": 111, "attrs": { "volume": "0.1" } },
+    { "type": "wokwi-pushbutton", "id": "botao", "top": 236.6, "left": -76.8, "attrs": { "color": "blue", "label": "Silenciar" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "sensor:VCC", "esp:5V", "red", [] ],
+    [ "sensor:GND", "esp:GND.1", "black", [] ],
+    [ "sensor:TRIG", "esp:26", "green", [] ],
+    [ "sensor:ECHO", "esp:27", "blue", [] ],
+
+    [ "lcd:VCC", "esp:3V3", "red", [] ],
+    [ "lcd:GND", "esp:GND.1", "black", [] ],
+    [ "lcd:SDA", "esp:21", "green", [] ],
+    [ "lcd:SCL", "esp:22", "yellow", [] ],
+
+    [ "esp:25", "rVerde:1", "green", [] ],
+    [ "rVerde:2", "ledVerde:A", "green", [] ],
+    [ "ledVerde:C", "esp:GND.1", "black", [] ],
+
+    [ "esp:33", "rAmarelo:1", "gold", [] ],
+    [ "rAmarelo:2", "ledAmarelo:A", "gold", [] ],
+    [ "ledAmarelo:C", "esp:GND.1", "black", [] ],
+
+    [ "esp:32", "rVermelho:1", "red", [] ],
+    [ "rVermelho:2", "ledVermelho:A", "red", [] ],
+    [ "ledVermelho:C", "esp:GND.1", "black", [] ],
+
+    [ "esp:23", "buzzer:2", "orange", [] ],
+    [ "buzzer:1", "esp:GND.1", "black", [] ],
+
+    [ "esp:19", "botao:1.l", "blue", [] ],
+    [ "botao:2.l", "esp:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}

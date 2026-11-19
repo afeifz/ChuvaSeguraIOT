@@ -12,7 +12,7 @@ Só usa a biblioteca padrão do Python (não precisa instalar nada).
 Uso:
     python ponte/ponte_mqtt_http.py --equipe troque-este-id
     ou
-    python ponte/ponte_mqtt_http.py --equipe troque-este-id --api http://localhost:5080 --ponto 2
+    python ponte/ponte_mqtt_http.py --equipe troque-este-id --api http://localhost:5080 --ponto 1
 
 O --equipe precisa ser IGUAL ao ID_EQUIPE do sketch.ino.
 """
@@ -211,7 +211,7 @@ def principal():
     parser = argparse.ArgumentParser(description="Ponte MQTT -> API de monitoramento (ChuvaSegura)")
     parser.add_argument("--equipe", required=True, help="mesmo ID_EQUIPE do sketch.ino")
     parser.add_argument("--api", default="http://localhost:5080", help="endereço da API C# (padrão: http://localhost:5080)")
-    parser.add_argument("--ponto", type=int, default=2, help="id do ponto (padrão: 2)")
+    parser.add_argument("--ponto", type=int, default=1, help="id do ponto (padrão: 1)")
     parser.add_argument("--broker", default="broker.hivemq.com", help="broker MQTT (padrão: broker.hivemq.com)")
     parser.add_argument("--porta", type=int, default=1883, help="porta do broker (padrão: 1883)")
     args = parser.parse_args()
